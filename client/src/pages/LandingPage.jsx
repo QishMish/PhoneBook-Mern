@@ -6,11 +6,11 @@ function LandingPage() {
     const [register, setRegister] = useState(true);
     return (
         <div className="landing-page-container">
-            {
-                register ? <Register /> 
-                : <Login />
-            }
-           
+            <Register/> 
+            {/* {
+                register ? 
+                // : <Login/>
+            } */}
         </div>
     )
 }

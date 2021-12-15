@@ -1,6 +1,12 @@
 import React from 'react'
 import Person from './Person'
+import { useSelector, useDispatch } from 'react-redux'
+
 function People() {
+
+    const people = useSelector(state => state.people.people)
+    const dispatch = useDispatch()
+
     return (
         <div className="people">
              <div className="search-bar">
@@ -12,15 +18,9 @@ function People() {
                 </form>
             </div>
             <div className="people-list">
-                <Person />
-                <Person />
-                <Person />
-                <Person />
-                <Person />
-                <Person />
-                <Person />
-                <Person />
-                <Person />
+                {
+                    people.map(person =><Person key = {person.id} name={person.name} phone = {person.phone_number}/>)
+                }
             </div>
         </div>
     )

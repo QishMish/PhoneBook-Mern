@@ -18,4 +18,4 @@ const perosonSchema = new mongoose.Schema({
 { timestamps: true }
 )
 
-module.exports = mongoose.model("task", perosonSchema);
+module.exports = mongoose.model("call", perosonSchema);
