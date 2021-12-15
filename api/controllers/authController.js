@@ -8,10 +8,12 @@ exports.register = async(req,res)=>{
     const user = await new User({username, password});
     try {
         await user.save();
-        const accesToken = await user.generateAuthToken();
-        const { password, ...data } = await user._doc;
-        res.cookie('jwt', accesToken, { httpOnly: true, maxAge: 3 * 24 * 60 * 60 * 1000 }); 
-        res.status(200).json({data, accesToken});
+        // const accesToken = await user.generateAuthToken();
+        // const { password, ...data } = await user._doc;
+        // res.cookie('jwt', accesToken, { httpOnly: true, maxAge: 3 * 24 * 60 * 60 * 1000 }); 
+        // res.status(200).json({data, accesToken});
+        res.status(200).json("You Successfully Signed Up");
+
     } catch (error) {
         res.status(500).json({status: 'error', message: error.message});
     }
@@ -27,7 +29,7 @@ exports.login = async(req,res)=>{
             if(validatedPassword ){
                 const accesToken = await user.generateAuthToken();
                 const { password, _id, ...data } = user._doc;
-                res.cookie('jwt', accesToken, { httpOnly: true, maxAge: 3 * 24 * 60 * 60 * 1000 });
+                res.cookie('jwt', accesToken, {maxAge: 3 * 24 * 60 * 60 * 1000 });
                 res.status(200).json({data,accesToken})
             } else{
                   res.status(400).json("wrong password!")

@@ -19,6 +19,7 @@
     "dotenv": "^10.0.0",
     "jsonwebtoken": "^8.5.1",
     "jwtoken": "^0.0.0",
-    "mongoose": "^6.1.1"
+    "mongoose": "^6.1.1",
+    "nodemon": "^2.0.15"
   }
 }

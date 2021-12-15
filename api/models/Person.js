@@ -8,7 +8,7 @@ const perosonSchema = new mongoose.Schema({
         trim:true,
         maxlenght:[25, "name can't be more than 25 characters"]
     },
-    phoneNumber:{
+    phone_number:{
         type:Number,
         require:[true, 'you must provide phone number'],
         trim:true,

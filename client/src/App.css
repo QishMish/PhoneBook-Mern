@@ -168,12 +168,15 @@ input:invalid[focused="true"] ~ span{
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 60px auto 60px auto;
+  margin: 60px auto 20px auto;
 }
 .search{
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.not-found{
+  color:#eb3e32;
 }
 .search label{
   display: flex;
@@ -182,6 +185,9 @@ input:invalid[focused="true"] ~ span{
   font-size: 22px;
   font-weight: bold;
   color:#0ECA98;
+}
+.search{
+  margin-bottom: 50px;
 }
 .search input{
   height:40px;
@@ -271,6 +277,16 @@ input:invalid[focused="true"] ~ span{
   color:#0d7946;
   margin-right: 40px;
 }
+/* error page */
+.error-page{
+  background-image: url("./images/error.jpg");
+  height: 100vh;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat; 
+  background-size: cover;
+}
+
 /* media queries */
 
 @media only screen and (max-width: 760px) {
