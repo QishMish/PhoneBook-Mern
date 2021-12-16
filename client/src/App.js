@@ -1,3 +1,4 @@
+import React,{useState,useEffect} from 'react';
 import './App.css';
 import LandingPage from './pages/LandingPage.jsx'
 import ErrorPage from './pages/ErrorPage.jsx'
@@ -12,9 +13,8 @@ import store from './redux/store'
 function App() {
 
   const [cookies, setCookie] = useCookies();
-  let authenticated = cookies.jwt ? true : false;
+  const [authenticated, setAuthenticated] = useState(cookies.jwt ? true : false)
 
-  console.log(authenticated)
 
   return (
     <Provider store={store}>

@@ -34,6 +34,10 @@ function People() {
         e.preventDefault();
         newPersonValues.id = uuidv4();
         dispatch(AddPerson(newPersonValues))
+        setNewPersonValues({
+            name: "",
+            phone_number: ""
+          })
     }  
    
     //searching person

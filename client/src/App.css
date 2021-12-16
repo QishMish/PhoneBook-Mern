@@ -275,7 +275,7 @@ input:invalid[focused="true"] ~ span{
   margin-left: 15px;
   cursor: pointer;
   color:#0d7946;
-  margin-right: 40px;
+  margin-left: 40px;
 }
 .edit-input{
   height:32px;
@@ -299,8 +299,79 @@ input:invalid[focused="true"] ~ span{
 
 /* media queries */
 
+
 @media only screen and (max-width: 760px) {
   .right-panel{
     display: none;
+  }
+  .navbar{
+    font-size: 20px;
+  }
+  .navbar .user{
+    margin-right: 20px;
+  }
+  .navbar .logout{ 
+    width:110px;
+    height: 30px;
+    font-size:15px;
+    margin-right: 20px;
+  }
+  .person-data{
+    padding-left: 10px;
+    font-size: 16px;
+    flex-direction: column;
+  }
+  .name{
+    margin-right: 10px;
+    padding: 0 0 5px 0;
+  }
+  .phone-num{
+    margin-right: 10px;
+  }
+  .control-icons{
+    margin-right: 20px;
+  }
+  .icon-edit{
+    font-size: 24px;
+    margin-left: 10px;
+  }
+  .icon-del{
+    font-size: 24px;
+    margin-left: 10px;
+  }
+  .icon-call{
+    font-size: 24px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .search input{
+    height:36px;
+    width: 220px;
+    margin: 10px 0 0 0;
+  }
+  .search input[type="submit"]{
+    margin-top: 15px;
+    width:120px;
+    height: 36px;
+    font-size:15px;
+  }
+  .edit-input{
+    margin: 5px 0 5px 0;
+    width: 130px;
+    font-size: 13px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .navbar{
+    font-size: 16px;
+  }
+  .navbar .user{
+    margin-right: 10px;
+  }
+  .navbar .logout{ 
+    width:100px;
+    height: 30px;
+    font-size:14px;
+    margin-right: 10px;
   }
 }

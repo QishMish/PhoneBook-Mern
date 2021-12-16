@@ -60,7 +60,7 @@ function Register() {
         e.preventDefault();
         try {
             const {confirmPassword, ...other} = inputValues;
-            const res = await axios.post('/register', other)
+            const res = await axios.post('/auth/register', other)
              setErrorMsg('')
              navigate("/login");
          } catch (err) {

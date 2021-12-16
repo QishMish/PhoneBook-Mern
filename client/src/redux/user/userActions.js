@@ -1,3 +1,4 @@
+import axios from 'axios'
 import {
     LOGIN_START,
     LOGIN_SUCCESS,
@@ -8,6 +9,34 @@ import {
     LOG_OUT
     } from './userTypes'
 
+//async actions
+export const userLogIn = (data) => {
+    return (dispatch) => {
+        dispatch(loginStart())
+        axios
+        .post('/auth/login', data)
+        .then(response => {
+            console.log(response)
+            const user = response.data.data.username
+            dispatch(loginSuccess(user))
+        })
+        .catch(error => {
+            dispatch(loginFailure(error.message))
+        })
+    }
+}
+export const userLogOut = () => {
+    return (dispatch) => {
+        axios
+        .post('/auth/logout')
+        .then(() => {
+            dispatch(logOut())
+        })
+        .catch(error => {
+            console.log(error)
+        })
+    }
+}
 //login actions
 export const loginStart = () => ({
     type: LOGIN_START,
@@ -21,16 +50,16 @@ export const loginFailure = () => ({
 });
 
 //register actions
-export const registerStart = () => ({
-    type: REGISTER_START,
-});   
-export const registerFailure = () => ({
-    type: REGISTER_SUCCESS,
-});
-export const registerSuccess = (user) => ({
-    type: REGISTER_FAILURE,
-    payload: user,
-});   
+// export const registerStart = () => ({
+//     type: REGISTER_START,
+// });   
+// export const registerFailure = () => ({
+//     type: REGISTER_SUCCESS,
+// });
+// export const registerSuccess = (user) => ({
+//     type: REGISTER_FAILURE,
+//     payload: user,
+// });   
 
 //log out
 export const logOut = () => ({

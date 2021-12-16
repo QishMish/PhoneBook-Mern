@@ -1,6 +1,7 @@
 import { ADD_PERSON, REMOVE_PERSON, EDIT_PERSON} from './peopleTypes'
 import { v4 as uuidv4 } from 'uuid';
 
+//hardcoded data
 const initialState = {
     people: [
         {"id":uuidv4(),"name":"Annemarie","phone_number":"6154702401"},
@@ -11,7 +12,6 @@ const initialState = {
         {"id":uuidv4(),"name":"Peder","phone_number":"8094734826"},
     ],
 }
-
 
 const peopleReducer = (state = initialState, action) =>{
     switch (action.type) {

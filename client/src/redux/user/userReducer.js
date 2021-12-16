@@ -14,6 +14,8 @@ const initialState = {
     error:false
 }
 
+
+
 const userReducer = (state = initialState, action) =>{
     switch (action.type) {
         case LOGIN_START:
@@ -22,6 +24,7 @@ const userReducer = (state = initialState, action) =>{
               loading: true
             }
         case LOGIN_SUCCESS:
+            localStorage.setItem('user', JSON.stringify(action.payload))
             return {
                 error:false,
                 user: action.payload,
@@ -33,24 +36,9 @@ const userReducer = (state = initialState, action) =>{
                 loading: false,
                 error: true,
             }
-        case REGISTER_START:
-            return {
-                ...state,
-                loading: true
-            }
-        case REGISTER_SUCCESS:
-            return {
-                user: action.payload,
-                loading: false,
-                error: false,
-            }
-        case REGISTER_FAILURE:
-            return {
-                user: null,
-                loading: false,
-                error: true,
-            }
         case LOG_OUT:
+            localStorage.removeItem('user')
+            document.cookies.remove('jwt')
             return {
                 user: null,
                 loading: false,
@@ -63,3 +51,20 @@ const userReducer = (state = initialState, action) =>{
 
 export default userReducer
 
+     // case REGISTER_START:
+        //     return {
+        //         ...state,
+        //         loading: true
+        //     }
+        // case REGISTER_SUCCESS:
+        //     return {
+        //         user: action.payload,
+        //         loading: false,
+        //         error: false,
+        //     }
+        // case REGISTER_FAILURE:
+        //     return {
+        //         user: null,
+        //         loading: false,
+        //         error: true,
+        //     }
