@@ -1,3 +1,4 @@
+import React from 'react'
 import axios from 'axios'
 import {
     LOGIN_START,
@@ -9,6 +10,10 @@ import {
     LOG_OUT
     } from './userTypes'
 
+
+const success = () => true;
+const failure = () => false;
+
 //async actions
 export const userLogIn = (data) => {
     return (dispatch) => {
@@ -16,8 +21,7 @@ export const userLogIn = (data) => {
         axios
         .post('/auth/login', data)
         .then(response => {
-            console.log(response)
-            const user = response.data.data.username
+            const user = response.data.data.username;
             dispatch(loginSuccess(user))
         })
         .catch(error => {

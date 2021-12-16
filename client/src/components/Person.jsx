@@ -36,27 +36,28 @@ function Person({person}) {
       
     }
     const CallerHandler = async()=>{
-        // const targetName = "dada";
-        // const targetPhoneNumber = "dada";
-        // const callerName = "dada";
-        // const time = Date.now
-        // try {
-            
-        //     const res = await axios.post('/auth/call', {targetName,targetPhoneNumber,callerName})
-        //  } catch (err) {
-        //      console.log(err);
-        //  }
-        Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            html:
-            'You can use <b>bold text</b>, ' +
-            '<a href="//sweetalert2.github.io">links</a> ' +
-            'and other HTML tags',
-            title: 'Your Call Succesfully Recorded To Datebase ',
-            showConfirmButton: false,
-            timer: 1500
-          })
+        const targetName = name;
+        const targetPhoneNumber = phone_number;
+        const callerName = localStorage.getItem('user');
+        const time = Date.now
+        try {
+             await axios.post('/call', {targetName,targetPhoneNumber,callerName,time})
+             Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Your Call Succesfully Recorded To Datebase ',
+                showConfirmButton: false,
+                timer: 1500
+              })
+         } catch (err) {
+             console.log(err);
+             Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Could Not Make Call',
+              })
+         }
+      
     }
 
 
