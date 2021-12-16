@@ -277,6 +277,16 @@ input:invalid[focused="true"] ~ span{
   color:#0d7946;
   margin-right: 40px;
 }
+.edit-input{
+  height:32px;
+  width: 180px;
+  border:none;
+  outline: none;
+  padding:10px;
+  background-color: #DFF5F3;
+  border-radius: 1px;
+  margin-right: 10px;
+}
 /* error page */
 .error-page{
   background-image: url("./images/error.jpg");

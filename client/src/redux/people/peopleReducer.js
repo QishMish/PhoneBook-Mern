@@ -1,27 +1,31 @@
 import { ADD_PERSON, REMOVE_PERSON, EDIT_PERSON} from './peopleTypes'
-
+import { v4 as uuidv4 } from 'uuid';
 
 const initialState = {
     people: [
-        {"id":"1","name":"Annemarie","phone_number":"615-470-2401"},
-        {"id":"2","name":"Harvey","phone_number":"921-686-4398"},
-        {"id":"3","name":"Sunny","phone_number":"330-643-3869"},
-        {"id":"4","name":"Goldarina","phone_number":"235-390-7881"},
-        {"id":"5","name":"Ramon","phone_number":"521-423-4496"},
-        {"id":"6","name":"Peder","phone_number":"809-473-4826"},
+        {"id":uuidv4(),"name":"Annemarie","phone_number":"6154702401"},
+        {"id":uuidv4(),"name":"Harvey","phone_number":"9216864398"},
+        {"id":uuidv4(),"name":"Sunny","phone_number":"3306433869"},
+        {"id":uuidv4(),"name":"Goldarina","phone_number":"2353907881"},
+        {"id":uuidv4(),"name":"Ramon","phone_number":"5214234496"},
+        {"id":uuidv4(),"name":"Peder","phone_number":"8094734826"},
     ],
 }
+
 
 const peopleReducer = (state = initialState, action) =>{
     switch (action.type) {
         case ADD_PERSON:
-            return {
-                people:state.people.push(action.payload)
-            }
+                state.people.push(action.payload)
         case EDIT_PERSON:
             return {
                 ...state,
-                people: state.people.filter((person) => person.id !== action.payload)
+                people : state.people.map((person) =>{
+                    if(person.id === action.payload.id){
+                        return  action.payload
+                    }
+                    return person;
+                })
             }
         case REMOVE_PERSON:
             return {
