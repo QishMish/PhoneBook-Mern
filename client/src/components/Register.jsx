@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
 import Input from "./Input";
-
+import {Link} from "react-router-dom";
 
 const Register = () => {
 
@@ -86,6 +86,9 @@ const Register = () => {
                             type="submit" 
                             value="Sign Up"  
                         />
+                        <Link to={'/login'}>
+                            <button className='sign-in-btn' >Sing In</button>
+                        </Link>
                     </form>
                     <div className="right-panel">
                         <h2>Welcome To PhoneBook App</h2>

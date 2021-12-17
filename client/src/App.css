@@ -102,6 +102,19 @@ input:invalid[focused="true"] ~ span{
   border:none;
   cursor: pointer;
 }
+.sign-in-btn{
+  margin-top:10px;
+  margin-top: 15px;
+  width:125px;
+  height: 36px;
+  font-weight: bold;
+  font-size:16px;
+  color:#725555;
+  background-color:#fafa1b;
+  border-radius: 20px;
+  border:none;
+  cursor: pointer;
+}
 .right-panel{
   background-color:#0ECA98;
   height:100%;
@@ -362,7 +375,7 @@ input:invalid[focused="true"] ~ span{
   }
   .edit-input{
     margin: 5px 0 5px 0;
-    width: 130px;
+    width: 100px;
     font-size: 13px;
   }
 }

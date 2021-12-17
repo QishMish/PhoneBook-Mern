@@ -4,6 +4,7 @@ import axios from 'axios'
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux'
 import {loginStart,loginSuccess,loginFailure} from "../redux";
+import {Link} from "react-router-dom";
 
 function Login() {
 
@@ -84,6 +85,9 @@ function Login() {
                     {
                          errorMsg && <span className="auth-error">{errorMsg}</span> 
                     }
+                    <Link to={'/'}>
+                        <button className='sign-in-btn' >Sing Up</button>
+                    </Link>
                 </form>
                 <div className="right-panel">
                     <h2>Welcome To PhoneBook App</h2>
