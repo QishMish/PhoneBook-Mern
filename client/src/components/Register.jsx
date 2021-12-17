@@ -20,7 +20,7 @@ const Register = () => {
         name: "username",
         type: "text",
         placeholder: "Username",
-        errorMessage:"Username must be 4-16 characters",
+        errorMessage:"Username must be 4-16 characters and must include only letters!",
         label: "Username",
         pattern: "^[A-Za-z0-9]{4,16}$",
         required: true,
@@ -30,7 +30,7 @@ const Register = () => {
         name: "password",
         type: "password",
         placeholder: "Password",
-        errorMessage:"Password must be 6-20 characters!",
+        errorMessage:"Password must be 6-20 characters and  must contain at least one letter!",
         label: "Password",
         pattern: `^(?=.*[a-z])[a-zA-Z0-9!@#$%^&*]{6,20}$`,
         required: true,
@@ -93,7 +93,6 @@ const Register = () => {
                     </div>
                 </div>
             )
- 
 };
 
 export default Register;

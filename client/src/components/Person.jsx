@@ -38,8 +38,8 @@ function Person({person}) {
     const CallerHandler = async()=>{
         const targetName = name;
         const targetPhoneNumber = phone_number;
-        const callerName = localStorage.getItem('user');
-        const time = Date.now
+        const callerName = JSON.parse(localStorage.getItem('user'));
+        const time = Date.now()
         try {
              await axios.post('/call', {targetName,targetPhoneNumber,callerName,time})
              Swal.fire({
@@ -54,12 +54,10 @@ function Person({person}) {
              Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Could Not Make Call',
+                text: 'Could Not Make Call, Name Should Not Include Numbers And Number Should Not Include Letters!',
               })
          }
-      
     }
-
 
     return (
         <div className="person">

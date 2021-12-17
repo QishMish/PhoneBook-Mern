@@ -1,20 +1,15 @@
-import React,{useState,useEffect} from 'react';
+import React from 'react';
 import './App.css';
 import LandingPage from './pages/LandingPage.jsx'
 import ErrorPage from './pages/ErrorPage.jsx'
 import Login from './components/Login'
 import DashBoard from './pages/DashBoard.jsx'
-import {BrowserRouter as Router,Routes ,Route,Navigate} from "react-router-dom";
-import { useCookies } from 'react-cookie';
+import {BrowserRouter as Router,Routes ,Route} from "react-router-dom";
 import { Provider } from 'react-redux'
 import store from './redux/store'
-
+import PrivateRoute from "./routes/PrivateRoute";
 
 function App() {
-
-  const [cookies, setCookie] = useCookies();
-  const [authenticated, setAuthenticated] = useState(cookies.jwt ? true : false)
-
 
   return (
     <Provider store={store}>
@@ -22,13 +17,10 @@ function App() {
                 <Router>
                     <Routes >
                       <Route exact path='/' element={<LandingPage />}  />
-                      <Route exact path='/login' element={<Login />}  />
-                      {
-                        authenticated ?  <Route exact path='/dashBoard' element={<DashBoard />} /> 
-                        // :  <Route exact path='/login' element={<Login />} />
-                        // : <Navigate to="/login" />
-                        : <Route  element={<Navigate to ="/" />}/>
-                      }
+                      <Route exact path='/login' element={<Login />}  /> 
+                      <Route path="/dashboard" element={<PrivateRoute />}>
+                        <Route path="/dashboard" element={<DashBoard />} />
+                      </Route>
                       <Route path='*' element={<ErrorPage />} />
                     </Routes> 
               </Router>

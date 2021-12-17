@@ -3,10 +3,10 @@ const verifyCall = (req,res,next) => {
     const {targetName, targetPhoneNumber} = req.body;
 
     let validator = {
-        onlyLetters : /^[A-Za-z]+$/,
-        onlyNumbers : /^[0-9]+$/,
+        // onlyLetters : /^[A-Za-z]+$/,
+        onlyLetters : /^[\u0041-\u007A\u10D0-\u10FA]*$/, //check if it includes only english leters(A-Za-z) and georgian letters
+        onlyNumbers : /^[0-9]+$/, //check if it icludes only numbers
     }
-    
     if(validateName(targetName,validator) && validatePhoneNumber(targetPhoneNumber,validator)){
         next()
     }else{

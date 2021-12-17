@@ -1,34 +1,12 @@
-import React from 'react'
 import axios from 'axios'
 import {
     LOGIN_START,
     LOGIN_SUCCESS,
     LOGIN_FAILURE,
-    REGISTER_START,
-    REGISTER_FAILURE,
-    REGISTER_SUCCESS,
     LOG_OUT
     } from './userTypes'
 
 
-const success = () => true;
-const failure = () => false;
-
-//async actions
-export const userLogIn = (data) => {
-    return (dispatch) => {
-        dispatch(loginStart())
-        axios
-        .post('/auth/login', data)
-        .then(response => {
-            const user = response.data.data.username;
-            dispatch(loginSuccess(user))
-        })
-        .catch(error => {
-            dispatch(loginFailure(error.message))
-        })
-    }
-}
 export const userLogOut = () => {
     return (dispatch) => {
         axios
@@ -52,18 +30,6 @@ export const loginSuccess = (user) => ({
 export const loginFailure = () => ({
     type: LOGIN_FAILURE,
 });
-
-//register actions
-// export const registerStart = () => ({
-//     type: REGISTER_START,
-// });   
-// export const registerFailure = () => ({
-//     type: REGISTER_SUCCESS,
-// });
-// export const registerSuccess = (user) => ({
-//     type: REGISTER_FAILURE,
-//     payload: user,
-// });   
 
 //log out
 export const logOut = () => ({

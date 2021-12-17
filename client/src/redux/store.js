@@ -10,4 +10,4 @@ const store = createStore(
     composeWithDevTools(applyMiddleware(logger,thunk))
   )
   
-  export default store
+export default store

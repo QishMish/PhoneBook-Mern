@@ -19,12 +19,11 @@ function People() {
         setInput(e.target.value)
       }
 
-    console.log(people)
     const onChangeHandler = (e) => {
         setNewPersonValues(
                 { 
-            ...newPersonValues, 
-            [e.target.name]: e.target.value 
+                ...newPersonValues, 
+                [e.target.name]: e.target.value 
             }
         );
     };

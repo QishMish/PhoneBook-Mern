@@ -4,12 +4,12 @@ import { v4 as uuidv4 } from 'uuid';
 //hardcoded data
 const initialState = {
     people: [
-        {"id":uuidv4(),"name":"Annemarie","phone_number":"6154702401"},
-        {"id":uuidv4(),"name":"Harvey","phone_number":"9216864398"},
-        {"id":uuidv4(),"name":"Sunny","phone_number":"3306433869"},
-        {"id":uuidv4(),"name":"Goldarina","phone_number":"2353907881"},
-        {"id":uuidv4(),"name":"Ramon","phone_number":"5214234496"},
-        {"id":uuidv4(),"name":"Peder","phone_number":"8094734826"},
+        {"id":uuidv4(),"name":"დავით","phone_number":"6154702401"},
+        {"id":uuidv4(),"name":"სოფო","phone_number":"9216864398"},
+        {"id":uuidv4(),"name":"გიორგი","phone_number":"3306433869"},
+        {"id":uuidv4(),"name":"მიხეილი","phone_number":"2353907881"},
+        {"id":uuidv4(),"name":"ანი","phone_number":"5214234496"},
+        {"id":uuidv4(),"name":"ელენე","phone_number":"8094734826"},
     ],
 }
 

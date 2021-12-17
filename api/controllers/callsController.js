@@ -1,8 +1,7 @@
 const Call = require('../models/Call');
 
 exports.registerCall = async(req,res)=>{
-    const {targetName, targetPhoneNumber, callerName} = req.body;
-    const time = Date.now();
+    const {targetName, targetPhoneNumber, callerName, time} = req.body;
     const callDoc = await new Call({targetName, targetPhoneNumber, callerName, time });
     try {
         await callDoc.save();
